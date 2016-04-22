@@ -10,6 +10,7 @@ module UserNotif
 
     def copy_files
       migration_template 'create_user_notif.rb', 'db/migrate/create_user_notif.rb'
+      copy_file 'initializer.rb', 'config/initializers/user_notif.rb'
     end
   end
 end
