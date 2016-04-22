@@ -1,8 +1,9 @@
 # UserNotif
 
-[![Build Status](https://travis-ci.org/terry90/user_notif.svg?branch=master)](https://travis-ci.org/terry90/user_notif)
-[![Code Climate](https://codeclimate.com/github/terry90/user_notif/badges/gpa.svg)](https://codeclimate.com/github/terry90/user_notif)
 [![Gem Version](https://badge.fury.io/rb/user_notif.svg)](https://badge.fury.io/rb/user_notif)
+[![Build Status](https://travis-ci.org/terry90/user_notif.svg?branch=master)](https://travis-ci.org/terry90/user_notif)
+[![Coverage Status](https://coveralls.io/repos/github/terry90/user_notif/badge.svg?branch=master)](https://coveralls.io/github/terry90/user_notif?branch=master)
+[![Code Climate](https://codeclimate.com/github/terry90/user_notif/badges/gpa.svg)](https://codeclimate.com/github/terry90/user_notif)
 [![Dependency Status](https://gemnasium.com/badges/github.com/terry90/user_notif.svg)](https://gemnasium.com/github.com/terry90/user_notif)
 [![security](https://hakiri.io/github/terry90/user_notif/master.svg)](https://hakiri.io/github/terry90/user_notif/master)
 

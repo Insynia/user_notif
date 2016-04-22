@@ -1,5 +1,2 @@
 require 'user_notif/version'
-
-module UserNotif
-
-end
+require 'user_notif/railtie' if defined?(Rails)
