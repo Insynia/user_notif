@@ -1,0 +1,18 @@
+class <%= file_name.classify %>Notif < UserNotif::Notif
+  def email?
+    # Override or delete (default: true)
+  end
+
+  def email_template
+    '<%= file_name %>_notif'
+  end
+
+  def subject_email
+    # TODO: Add this key in your yml or delete the method
+    I18n.t('notif.<%= file_name %>.subject')
+  end
+
+  private
+
+  TARGET_CLASS = <%= target %>
+end
