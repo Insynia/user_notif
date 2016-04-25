@@ -2,8 +2,6 @@ require 'active_record'
 
 module UserNotif
   class Notif < ActiveRecord::Base
-    include ModelExceptions
-
     belongs_to :target, polymorphic: true
     belongs_to :user
 
@@ -27,6 +25,8 @@ module UserNotif
     end
 
     private
+
+    TARGET_CLASS = nil
 
     def notify_email
       return unless email?

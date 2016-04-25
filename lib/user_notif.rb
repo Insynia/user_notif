@@ -1,4 +1,7 @@
 require 'user_notif/version'
+require 'user_notif/notif'
+require 'user_notif/model_exceptions'
+require 'user_notif/notif_mailer'
 require 'user_notif/railtie' if defined?(Rails)
 
 module UserNotif
