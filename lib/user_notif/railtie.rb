@@ -1,3 +1,5 @@
+require 'rails/railtie'
+
 module UserNotif
   class Railtie < Rails::Railtie
     config.before_configuration do |app|

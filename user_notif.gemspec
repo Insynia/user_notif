@@ -23,5 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
 
-  spec.add_dependency 'rails', ['>= 4.2.3', '< 5.0']
+  spec.add_runtime_dependency 'activerecord', ['>= 4.0']
+  spec.add_runtime_dependency 'actionmailer', ['>= 4.0']
+  spec.add_runtime_dependency 'railties', ['>= 4.0']
 end

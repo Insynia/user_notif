@@ -1,3 +1,5 @@
+require 'active_record'
+
 module UserNotif
   class Notif < ActiveRecord::Base
     include ModelExceptions
