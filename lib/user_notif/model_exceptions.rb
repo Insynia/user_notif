@@ -1,5 +1,3 @@
-module UserNotif
-  module ModelExceptions
-    class BadTypeNotification < StandardError; end
-  end
+module ModelExceptions
+  class BadTypeNotification < StandardError; end
 end

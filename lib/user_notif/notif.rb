@@ -34,7 +34,7 @@ module UserNotif
 
     def notify_email
       return unless email?
-      NotifMailer.delay.notif_email(self.id)
+      NotifMailer.notif_email(self.id).deliver_later
     end
   end
 end

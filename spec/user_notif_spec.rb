@@ -14,6 +14,6 @@ describe UserNotif do
   end
 
   it 'has a ModelException module' do
-    expect(UserNotif::ModelExceptions).not_to be nil
+    expect(ModelExceptions).not_to be nil
   end
 end
