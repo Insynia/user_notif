@@ -1,6 +1,8 @@
 require 'rails/generators/base'
 
 class UserNotifGenerator < Rails::Generators::NamedBase
+  desc 'This generator creates a new notification model with his associated files'
+
   source_root File.expand_path('../templates', __FILE__)
 
   argument :target, type: :string
