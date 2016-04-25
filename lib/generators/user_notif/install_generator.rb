@@ -4,7 +4,7 @@ module UserNotif
   class InstallGenerator < ActiveRecord::Generators::Base
     desc 'This generator creates a migration file at db/migrate and an initializer'
 
-    source_root File.expand_path('../install', __FILE__)
+    source_root File.expand_path('../install_templates', __FILE__)
 
     argument :name, type: :string, default: 'create_user_notif'
 
