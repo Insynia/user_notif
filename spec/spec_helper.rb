@@ -3,11 +3,17 @@ require 'user_notif'
 require 'coveralls'
 require 'simplecov'
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.minimum_coverage 90
+SimpleCov.minimum_coverage_by_file 80
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+
 SimpleCov.at_exit do
   Dir.mkdir('coverage') unless Dir.exist?('coverage')
   SimpleCov.result.format!
-  SimpleCov.add_group 'Gem', 'lib'
 end
 
 SimpleCov.start
