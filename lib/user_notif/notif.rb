@@ -7,6 +7,11 @@ module UserNotif
 
     after_create :notify_email
 
+    def target=(t)
+      raise ModelExceptions::BadTypeNotification unless t.class == TARGET_CLASS
+      super(t)
+    end
+
     def email?
       true
     end
