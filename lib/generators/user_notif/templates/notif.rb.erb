@@ -12,7 +12,7 @@ class <%= file_name.classify %>Notif < UserNotif::Notif
     I18n.t('notif.<%= file_name %>.subject')
   end
 
-  private
-
-  TARGET_CLASS = <%= target %>
+  def target_class
+    <%= target.classify %>
+  end
 end

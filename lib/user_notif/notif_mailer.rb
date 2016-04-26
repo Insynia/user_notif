@@ -10,7 +10,7 @@ module UserNotif
         to: @user.email,
         subject: notif.subject_email,
         template_path: 'notifications/mailer',
-        template_name: notif.email_template
+        template_name: notif.template_name
       )
     end
   end

@@ -5,6 +5,8 @@ module UserNotif
     belongs_to :target, polymorphic: true
     belongs_to :user
 
+    scope :unread, -> { where(unread: true) }
+
     after_create :notify_email
 
     def target=(t)
@@ -16,7 +18,7 @@ module UserNotif
       true
     end
 
-    def email_template
+    def template_name
       'generic_notif'
     end
 
@@ -24,9 +26,11 @@ module UserNotif
       I18n.t('notif.generic.subject')
     end
 
-    private
+    def target_class
+      nil
+    end
 
-    TARGET_CLASS = nil
+    private
 
     def notify_email
       return unless email?
