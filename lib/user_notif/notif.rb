@@ -29,7 +29,7 @@ module UserNotif
     private
 
     def validate_target_and_user
-      raise ModelExceptions::BadTypeNotification unless self.target.class == TARGET_CLASS
+      raise ModelExceptions::BadTypeNotification unless self.target.class == target_class
       raise ModelExceptions::NotificationOwnerNil if self.user == nil
     end
 
