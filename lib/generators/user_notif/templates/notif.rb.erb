@@ -3,7 +3,7 @@ class <%= file_name.classify %>Notif < UserNotif::Notif
     # Override or delete (default: true)
   end
 
-  def email_template
+  def template_name
     '<%= file_name %>_notif'
   end
 
