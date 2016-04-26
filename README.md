@@ -42,3 +42,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/terry9
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/terry90/user_notif/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
