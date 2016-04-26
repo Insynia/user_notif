@@ -9,3 +9,4 @@
 /tmp/
 /.idea
 /*.gem
+/spec/internal/db/*.sqlite
