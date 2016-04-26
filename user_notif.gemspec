@@ -25,8 +25,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'combustion', '~> 0.5.4'
   spec.add_development_dependency 'sprockets-rails', ['>= 3.0']
 
-  spec.add_runtime_dependency 'activerecord', ['>= 4.0']
-  spec.add_runtime_dependency 'actionmailer', ['>= 4.0']
-  spec.add_runtime_dependency 'railties', ['>= 4.0']
-  spec.add_runtime_dependency 'devise'
+  spec.add_runtime_dependency 'activerecord', '>= 4.0'
+  spec.add_runtime_dependency 'actionmailer', '>= 4.0'
+  spec.add_runtime_dependency 'railties', '>= 4.0'
+  spec.add_runtime_dependency 'devise', '>= 3.5.4'
 end
