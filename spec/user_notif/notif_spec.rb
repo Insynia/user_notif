@@ -1,24 +1,15 @@
 require 'spec_helper'
 
-ActiveRecord::Migration.verbose = false
-ActiveRecord::Base.logger = Logger.new(nil)
-ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
-
-ActiveRecord::Base.connection.instance_eval do
-  create_table :notifs do |t|
-    t.references :target, polymorphic: true, index: true
-    t.belongs_to :user, index: true
-    t.boolean :unread, index: true, default: true
-    t.string :type
-    t.timestamps null: false
-  end
-end
-
 describe UserNotif::Notif do
   let(:notif) { UserNotif::Notif.new }
 
   it 'raises an exception with an invalid target' do
-    expect { UserNotif::Notif.new(target: nil) }.to raise_error ModelExceptions::BadTypeNotification
+    expect { UserNotif::Notif.create(target: nil) }.to raise_error ModelExceptions::BadTypeNotification
+  end
+
+  it 'raises an exception with empty user' do
+    stub_const('UserNotif::Notif::TARGET_CLASS', NilClass)
+    expect { UserNotif::Notif.create }.to raise_error ModelExceptions::NotificationOwnerNil
   end
 
   describe '#email?' do
@@ -36,6 +27,32 @@ describe UserNotif::Notif do
   describe '#subject_email' do
     it 'returns subject_email' do
       expect(notif.subject_email).to eq I18n.t('notif.generic.subject')
+    end
+  end
+
+  describe '#notify_email' do
+    let(:user) { User.create(email: 'ganesh.desfleurs@gmail.com') }
+    let(:notif) { UserNotif::Notif.new(user: user) }
+
+    before do
+      allow(notif).to receive(:email?) { true }
+      stub_const('UserNotif::Notif::TARGET_CLASS', NilClass)
+    end
+
+    context 'when email? returns true' do
+      it 'sends an email' do
+        expect { notif.save }.to change { ActionMailer::Base.deliveries.count }.by 1
+      end
+    end
+
+    context 'when email? returns false' do
+      before do
+        allow(notif).to receive(:email?) { false }
+      end
+
+      it 'does not send an email' do
+        expect { notif.save }.to change { ActionMailer::Base.deliveries.count }.by 0
+      end
     end
   end
 end

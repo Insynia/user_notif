@@ -1,3 +1,9 @@
+# Combustion
+require 'combustion'
+
+Combustion.initialize! :all
+
+# Coverage
 require 'simplecov'
 require 'coveralls'
 
@@ -16,11 +22,12 @@ end
 
 SimpleCov.start
 
+# Tests
+
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'user_notif'
 
-UserNotif.setup do |config|
-  config.app_name = 'Test Application'
-  config.mailer_sender = 'test@app.com'
-end
+ActionMailer::Base.delivery_method = :test
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.deliveries = []

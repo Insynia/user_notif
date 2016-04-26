@@ -7,12 +7,8 @@ module UserNotif
 
     scope :unread, -> { where(unread: true) }
 
+    before_save :validate_target_and_user
     after_create :notify_email
-
-    def target=(t)
-      raise ModelExceptions::BadTypeNotification unless t.class == TARGET_CLASS
-      super(t)
-    end
 
     def email?
       true
@@ -31,6 +27,11 @@ module UserNotif
     end
 
     private
+
+    def validate_target_and_user
+      raise ModelExceptions::BadTypeNotification unless self.target.class == TARGET_CLASS
+      raise ModelExceptions::NotificationOwnerNil if self.user == nil
+    end
 
     def notify_email
       return unless email?
