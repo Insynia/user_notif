@@ -18,8 +18,13 @@ module UserNotif
       'generic_notif'
     end
 
-    def subject_email
-      I18n.t('notif.generic.subject')
+    def email_options(opts = {})
+      {
+        subject: I18n.t('notif.generic.subject'),
+        bcc: UserNotif.mailer_bcc,
+        return_path: UserNotif.mailer_return_path,
+        from: UserNotif.mailer_sender
+      }.merge(opts)
     end
 
     def target_class

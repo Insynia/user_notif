@@ -7,9 +7,11 @@ class <%= file_name.classify %>Notif < UserNotif::Notif
     '<%= file_name %>_notif'
   end
 
-  def subject_email
-    # TODO: Add this key in your yml or delete the method
-    I18n.t('notif.<%= file_name %>.subject')
+  def email_options
+    # TODO: Add this I18n key in your yml and add options or delete the method if you want to keep default values
+    super({
+        subject: I18n.t('notif.<%= file_name %>.subject')
+      })
   end
 
   def target_class
