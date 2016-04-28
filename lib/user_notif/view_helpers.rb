@@ -7,14 +7,14 @@ module UserNotif
       return unless notifs
       output = ''
 
-      notifs.each { |n| output << notif(n, small) }
+      notifs.each { |n| output << user_notif(n, small) }
 
       wrap output
     end
 
     def user_notif(notif, small = true)
       @notif = notif
-        wrap render("notifications/#{small ? 'small' : 'full'}/#{notif.template_name}")
+      render("notifications/#{small ? 'small' : 'full'}/#{notif.template_name}")
     end
 
     private
