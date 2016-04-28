@@ -23,7 +23,7 @@ module UserNotif
     end
 
     def target_class
-      nil
+      nil # Has to be overriden
     end
 
     private

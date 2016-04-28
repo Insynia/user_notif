@@ -12,7 +12,7 @@ module UserNotif
       output.html_safe
     end
 
-    def notif(notif, small)
+    def notif(notif, small = true)
       @notif = notif
         render "notifications/#{small ? 'small' : 'full'}/#{notif.template_name}"
     end

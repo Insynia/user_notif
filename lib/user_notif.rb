@@ -10,6 +10,10 @@ module UserNotif
     yield self
   end
 
+  def self.root
+    File.dirname __dir__
+  end
+
   mattr_accessor :mailer_sender
   @@mailer_sender = 'contact@myapp.com'
 
