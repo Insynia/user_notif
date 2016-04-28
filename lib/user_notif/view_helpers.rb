@@ -1,5 +1,3 @@
-require 'devise' # NOT WORKING
-
 module UserNotif
   module ViewHelpers
     include ::ActionView::Context
