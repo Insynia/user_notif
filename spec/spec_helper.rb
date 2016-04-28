@@ -1,4 +1,3 @@
-#TODO: ERROR Table 'notifs' already exists
 # Delete old database
 db_path = File.dirname(__FILE__) + '/internal/db/combustion_test.sqlite'
 File.delete(db_path) if File.exist?(db_path)
@@ -29,9 +28,6 @@ require 'combustion'
 require 'rails/generators'
 
 Combustion.initialize! :all
-
-# Running install generator
-Rails::Generators.invoke('user_notif:install')
 
 # Tests
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
