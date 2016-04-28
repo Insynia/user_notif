@@ -1,0 +1,5 @@
+notif:
+  generic:
+    subject: 'New notification on %{app_name}!'
+  foo:
+    subject: 'You have a new foo notification!'
