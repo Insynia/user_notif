@@ -1,5 +1,6 @@
-<div class="user-notif">
-  <div class="notif-badge unread"></div>
-  <div class="notif-title">New <%= @notif.type %> !</div>
-  <div class="notif-content">This notif is the <%= @notif.id.ordinalize %></div>
+<div class="user-notif <%= 'unread' if @notif.unread %>">
+  <div class="notif-body">
+    <div class="notif-title">New <%= @notif.type %> !</div>
+    <div class="notif-content">This notif is the <%= @notif.id.ordinalize %></div>
+  </div>
 </div>

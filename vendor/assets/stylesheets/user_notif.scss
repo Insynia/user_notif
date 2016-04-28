@@ -1,7 +1,38 @@
-.small-user-notif {
-    padding: 5px;
-    color: #333333;
-    border-bottom: 1px solid grey;
-}
+.user-notif-wrapper {
+    .small-user-notif {
+        cursor: pointer;
+        padding: 10px;
+        color: #333333;
+        border-bottom: 1px solid lightgrey;
 
-.small-user-notif:last-child { border-bottom: none }
+        &:last-child {
+            border-bottom: none
+        }
+
+        &:hover {
+            background-color: lightgrey;
+        }
+
+        &:before {
+            display: inline-block;
+            vertical-align: middle;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: grey;
+            content: ''
+        }
+
+        &.unread {
+            &:before {
+                background-color: #33ce74;
+            }
+        }
+
+        .notif-body {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+    }
+}
