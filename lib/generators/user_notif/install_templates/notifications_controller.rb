@@ -4,6 +4,7 @@ module UserNotif
       set_notif
       raise ActiveRecord::RecordNotFound.new('Not Found') unless @notif
       @notif.update!(unread: false)
+      raise nothing: true
     end
 
     private

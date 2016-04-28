@@ -1,12 +1,9 @@
 require 'spec_helper'
+require 'rspec/rails'
 
 describe UserNotif::NotificationsController, type: :controller do
   let(:user) { User.create(email: 'foo@bar.com') }
-  let(:notif) { UserNotif::FooNotif.create(target: user) }
-
-  before(:each) do
-    controller.instance_variable_set('@donation', donation)
-  end
+  let(:notif) { FooNotif.create(target: user, user: user) }
 
   describe 'PUT #read' do
     context 'with a correct notif id' do

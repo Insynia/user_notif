@@ -19,6 +19,7 @@ module UserNotif
     end
 
     def email_options(opts = {})
+      #TODO: reply-to, cc, date
       {
         subject: I18n.t('notif.generic.subject'),
         bcc: UserNotif.mailer_bcc,

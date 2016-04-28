@@ -11,7 +11,7 @@ module UserNotif
     def copy_files
       migration_template 'create_notifs.rb', 'db/migrate/create_notifs.rb'
       copy_file 'initializer.rb', 'config/initializers/user_notif.rb'
-      copy_file 'notifications_controller.rb', 'app/controllers/notifications/notifications_controller.rb'
+      copy_file 'notifications_controller.rb', 'app/controllers/user_notif/notifications_controller.rb'
       copy_file 'locales/fr.yml', 'config/locales/user_notif.fr.yml'
       copy_file 'locales/en.yml', 'config/locales/user_notif.en.yml'
     end
