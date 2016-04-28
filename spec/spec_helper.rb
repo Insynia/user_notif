@@ -1,7 +1,3 @@
-# Delete old database
-db_path = File.dirname(__FILE__) + '/internal/db/combustion_test.sqlite'
-File.delete(db_path) if File.exist?(db_path)
-
 # Coverage
 require 'simplecov'
 require 'coveralls'
