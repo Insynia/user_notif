@@ -9,5 +9,11 @@ module UserNotif
     initializer 'user_notif.view_helpers' do
       ActionView::Base.send :include, UserNotif::ViewHelpers
     end
+
+    initializer :assets do
+      Rails.application.config.assets.precompile += %w{ notifications.js.coffee notifications.scss }
+      Rails.application.config.assets.paths << UserNotif.root + '/vendor/assets/javascripts'
+      Rails.application.config.assets.paths << UserNotif.root + '/vendor/assets/stylesheets'
+    end
   end
 end

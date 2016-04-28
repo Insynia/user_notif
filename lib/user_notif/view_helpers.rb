@@ -3,18 +3,24 @@ module UserNotif
     include ::ActionView::Context
     include ::ActionView::Helpers
 
-    def list_notifs(notifs = nil, small = true)
+    def list_user_notifs(notifs = nil, small = true)
       return unless notifs
       output = ''
 
       notifs.each { |n| output << notif(n, small) }
 
-      output.html_safe
+      wrap output
     end
 
-    def notif(notif, small = true)
+    def user_notif(notif, small = true)
       @notif = notif
-        render "notifications/#{small ? 'small' : 'full'}/#{notif.template_name}"
+        wrap render("notifications/#{small ? 'small' : 'full'}/#{notif.template_name}")
+    end
+
+    private
+
+    def wrap(elem)
+      "<div class=\"user-notif-wrapper\">#{elem}</div>".html_safe
     end
   end
 end

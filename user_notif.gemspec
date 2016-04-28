@@ -28,4 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'activerecord', '>= 4.0'
   spec.add_runtime_dependency 'actionmailer', '>= 4.0'
   spec.add_runtime_dependency 'railties', '>= 4.0'
+  spec.add_runtime_dependency 'sass-rails', '~> 5.0'
+  spec.add_runtime_dependency 'coffee-rails', '~> 4.1.0'
 end

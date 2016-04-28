@@ -19,13 +19,79 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
 
-    $ gem install user_notif
+---
+
+
+After you install UserNotif and add it to your Gemfile, you need to run the generator:
+
+`rails generate user_notif:install User`
+
+The parameter `User` is the model name of my users (easy, no?).
+
+
+---
+
+
+If you want to use it out of the box, require JS and SCSS files
+
+In your `app/assets/stylesheets/application.css`
+
+```css
+/*
+ *= require user_notif
+ */
+```
+
+In your `app/assets/javascripts/application.js`
+
+```js
+//
+//= require user_notif
+//
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Now you can create your first notification !
+
+### Models
+
+Run this generator:
+
+`rails generate user_notif name target_model`
+
+It will create a `NameNotif` model and his associated views. You should customize the generated views.
+
+A notification has a user and a target. The target can be any model, like a `User` or something else.
+You can then override the views to display informations about the target.
+
+Example:
+
+`rails generate user_notif new_follower user`
+
+It creates a NewFollowerNotif
+
+Now you can add the logic to create notifications when a user is followed by another one (the target).
+
+### Views
+
+To display your notifications, you can use some helpers:
+
+`list_user_notifs(notifs, small = true)`
+
+`user_notif(notif, small = true)`
+
+```erb
+<%= list_user_notifs(UserNotif.all) %>
+<%= user_notif(UserNotif.last, false) %>
+```
+
+The `small` parameter will take care of rendering the partial located in `app/views/notifications/[small,full]`
+
+### Mailer
+
+ # TODO
 
 ## Development
 
@@ -36,7 +102,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/terry90/user_notif. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
 
 ## License
 
