@@ -20,5 +20,5 @@ module UserNotif
   mattr_accessor :app_name
   @@app_name = 'My App'
 
-  mattr_accessor :mailer_bcc, :mailer_return_path
+  mattr_accessor :mailer_bcc, :mailer_return_path, :mailer_from, :mailer_reply_to, :mailer_cc, :mailer_date
 end

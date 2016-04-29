@@ -19,12 +19,14 @@ module UserNotif
     end
 
     def email_options(opts = {})
-      #TODO: reply-to, cc, date
       {
         subject: I18n.t('notif.generic.subject'),
         bcc: UserNotif.mailer_bcc,
         return_path: UserNotif.mailer_return_path,
-        from: UserNotif.mailer_sender
+        from: UserNotif.mailer_sender,
+        reply_to: UserNotif.mailer_reply_to,
+        cc: UserNotif.mailer_cc,
+        date: Time.current,
       }.merge(opts)
     end
 
