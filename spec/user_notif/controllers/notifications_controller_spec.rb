@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'rspec/rails'
 
-describe UserNotif::NotificationsController, type: :controller do
+describe UserNotif::NotifsController, type: :controller do
   let(:user) { User.create(email: 'foo@bar.com') }
   let(:notif) { FooNotif.create(target: user, user: user) }
 

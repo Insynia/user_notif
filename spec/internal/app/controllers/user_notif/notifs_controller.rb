@@ -1,7 +1,7 @@
-require_relative '../../models/notifications/foo_notif'
+require_relative '../../models/notifs/foo_notif'
 
 module UserNotif
-  class NotificationsController < ApplicationController
+  class NotifsController < ApplicationController
     def read
       set_notif
       raise ActiveRecord::RecordNotFound.new('Not Found') unless @notif
