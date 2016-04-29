@@ -25,22 +25,20 @@ describe UserNotif::Notif do
   end
 
   describe '#email_options' do
-    context 'with no custom options' do
-      it 'contains the right subject email' do
-        expect(notif.email_options[:subject]).to eq I18n.t('notif.generic.subject')
-      end
+    it 'contains the right subject email' do
+      expect(notif.email_options[:subject]).to eq I18n.t('notif.generic.subject')
+    end
 
-      it 'contains the right bcc' do
-        expect(notif.email_options[:bcc]).to eq UserNotif.mailer_bcc
-      end
+    it 'contains the right bcc' do
+      expect(notif.email_options[:bcc]).to eq UserNotif.mailer_bcc
+    end
 
-      it 'contains the right return path' do
-        expect(notif.email_options[:return_path]).to eq UserNotif.mailer_return_path
-      end
+    it 'contains the right return path' do
+      expect(notif.email_options[:return_path]).to eq UserNotif.mailer_return_path
+    end
 
-      it 'contains the right from' do
-        expect(notif.email_options[:from]).to eq UserNotif.mailer_sender
-      end
+    it 'contains the right from' do
+      expect(notif.email_options[:from]).to eq UserNotif.mailer_sender
     end
   end
 
