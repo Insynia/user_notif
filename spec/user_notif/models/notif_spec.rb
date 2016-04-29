@@ -9,7 +9,7 @@ describe UserNotif::Notif do
 
   it 'raises an exception with empty user' do
     allow(notif).to receive(:target_class) { NilClass }
-    expect { notif.save }.to raise_error ModelExceptions::NotificationOwnerNil
+    expect { notif.save }.to raise_error ModelExceptions::NotifOwnerNil
   end
 
   describe '#email?' do

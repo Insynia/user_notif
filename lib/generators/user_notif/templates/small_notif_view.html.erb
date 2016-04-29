@@ -1,4 +1,4 @@
-<div class="small-user-notif <%= 'unread' if @notif.unread %>">
+<div class="small-user-notif <%= 'unread' if @notif.unread %>" data-url="<%= read_user_notif_path(id: @notif.id) %>">
   <div class="notif-body">
     <div class="notif-title">New <%= @notif.type %> !</div>
     <div class="notif-content">This notif is the <%= @notif.id.ordinalize %></div>

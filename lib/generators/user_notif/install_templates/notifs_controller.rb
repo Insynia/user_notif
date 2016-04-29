@@ -1,10 +1,10 @@
 module UserNotif
-  class NotificationsController < ApplicationController::Base
+  class NotifsController < ApplicationController # TODO guard clause (user check)
     def read
       set_notif
       raise ActiveRecord::RecordNotFound.new('Not Found') unless @notif
       @notif.update!(unread: false)
-      raise nothing: true
+      render nothing: true
     end
 
     private

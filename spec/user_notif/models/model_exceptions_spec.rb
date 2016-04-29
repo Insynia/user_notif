@@ -6,6 +6,6 @@ describe ModelExceptions do
   end
 
   it 'has a NotificationOwnerNil class' do
-    expect(ModelExceptions::NotificationOwnerNil).not_to be nil
+    expect(ModelExceptions::NotifOwnerNil).not_to be nil
   end
 end

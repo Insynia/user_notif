@@ -1,4 +1,4 @@
 module ModelExceptions
   class BadTypeNotification < StandardError; end
-  class NotificationOwnerNil < StandardError; end
+  class NotifOwnerNil < StandardError; end
 end

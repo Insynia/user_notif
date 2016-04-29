@@ -36,7 +36,7 @@ module UserNotif
 
     def validate_target_and_user
       raise ModelExceptions::BadTypeNotification unless self.target.class == target_class
-      raise ModelExceptions::NotificationOwnerNil if self.user == nil
+      raise ModelExceptions::NotifOwnerNil if self.user == nil
     end
 
     def notify_email
