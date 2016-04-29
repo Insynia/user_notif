@@ -92,17 +92,19 @@ The `small` parameter will take care of rendering the partial located in `app/vi
 
 #### Cutomizing your views
 
-You can customize your views by modifying `app/views/notifs/[small,full]/*` files
+You can customize your views by modifying `app/views/notifs/[small,full]/*` files.
+
 Implement your own element to mark notifications as read with `mark-as-read` class.
+
 An ajax call to the `data-url` is triggered when you click on this element. This makes the notification read !
 
 Example:
 
 ```erb
 <div class=user-notif">
-...
-<div class="mark-as-read" data-url="<%= read_user_notif_path(id: @notif.id) %>">X</div>
-<div>
+  ...
+  <div class="mark-as-read" data-url="<%= read_user_notif_path(id: @notif.id) %>">X</div>
+</div>
 ```
 
 The default behavior remove the unread class on the element itself but you can override it or add your own behavior.
