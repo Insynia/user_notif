@@ -1,40 +1,81 @@
 require 'spec_helper'
 
-describe UserNotif::ViewHelpers, type: :helper do
-  let(:helper) { UserNotif::ViewHelpers }
+def count_substrings(str, sub)
+  str.scan(sub).length
+end
 
-  describe '#notif' do
+describe UserNotif::ViewHelpers, type: :helper do
+  let(:user) { User.create(email: 'ganesh.desfleurs@gmail.com') }
+  let(:notif) { FooNotif.create(user: user, target: user) }
+
+  describe '#user_notif' do
     context 'when small == true' do
-      it 'renders the right template' do
-        skip 'Waiting for view helpers'
-        expect(helper.notif(UserNotif::Notif.new, true)).to render_template(partial: 'notifications/small/_generic_notif')
+      subject { user_notif(notif, true) }
+
+      it 'has one small user notif tag' do
+        expect(count_substrings(subject, '<div class="small-user-notif">')).to eq 1
+      end
+
+      it 'has one small title tag' do
+        expect(count_substrings(subject, '<div class="notif-title">')).to eq 1
+      end
+
+      it 'has one small content tag' do
+        expect(count_substrings(subject, '<div class="notif-content">')).to eq 1
       end
     end
 
     context 'when small == false' do
-      it 'renders the right template' do
-        skip 'Waiting for view helpers'
-        expect(helper.notif(UserNotif::Notif.new, false)).to render_template(partial: 'notifications/full/_generic_notif')
+      subject { user_notif(notif, false) }
+
+      it 'has one user notif tag' do
+        expect(count_substrings(subject, '<div class="user-notif">')).to eq 1
+      end
+
+      it 'has one user title tag' do
+        expect(count_substrings(subject, '<div class="notif-title">')).to eq 1
+      end
+
+      it 'has one user content tag' do
+        expect(count_substrings(subject, '<div class="notif-content">')).to eq 1
       end
     end
   end
 
-  describe '#list_notifs' do
-    let(:list_notif) { [UserNotif::Notif.new, UserNotif::Notif.new, UserNotif::Notif.new] }
+  describe '#list_user_notifs' do
+    let(:notif2) { FooNotif.create(user: user, target: user) }
+    let(:notif3) { FooNotif.create(user: user, target: user) }
+    let(:list_notifs) { [notif, notif2, notif3] }
 
     context 'when small == true' do
-      it 'calls the notif methods with the good arguments the right number of times' do
-        skip 'Waiting for view helpers'
-        expect(helper).to receive(:list_notifs).with(list_notif, true).exactly(list_notif.count).times
-        helper.list_notif(list_notifs, true)
+      subject { list_user_notifs(list_notifs, true) }
+
+      it 'has one small user notif tag' do
+        expect(count_substrings(subject, '<div class="small-user-notif">')).to eq 3
+      end
+
+      it 'has one small title tag' do
+        expect(count_substrings(subject, '<div class="notif-title">')).to eq 3
+      end
+
+      it 'has one small content tag' do
+        expect(count_substrings(subject, '<div class="notif-content">')).to eq 3
       end
     end
 
     context 'when small == false' do
-      it 'calls the notif methods with the good arguments the right number of times' do
-        skip 'Waiting for view helpers'
-        expect(helper).to receive(:list_notifs).with(list_notif, false).exactly(list_notif.count).times
-        helper.list_notif(list_notifs, false)
+      subject { list_user_notifs(list_notifs, false) }
+
+      it 'has one user notif tag' do
+        expect(count_substrings(subject, '<div class="user-notif">')).to eq 3
+      end
+
+      it 'has one user title tag' do
+        expect(count_substrings(subject, '<div class="notif-title">')).to eq 3
+      end
+
+      it 'has one user content tag' do
+        expect(count_substrings(subject, '<div class="notif-content">')).to eq 3
       end
     end
   end

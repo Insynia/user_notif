@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UserNotif::Notif do
+describe FooNotif do
   let(:user) { User.create(email: 'ganesh.desfleurs@gmail.com') }
   let(:notif) { FooNotif.new(user: user, target: user) }
 
