@@ -87,11 +87,63 @@ To display your notifications, you can use some helpers:
 <%= user_notif(UserNotif.last, false) %>
 ```
 
-The `small` parameter will take care of rendering the partial located in `app/views/notifications/[small,full]`
+The `small` parameter will take care of rendering the partial located in `app/views/notifs/[small,full]`
+
+
+#### Cutomizing your views
+
+You can customize your views by modifying `app/views/notifs/[small,full]/*` files
+Implement your own element to mark notifications as read with `mark-as-read` class.
+An ajax call to the `data-url` is triggered when you click on this element. This makes the notification read !
+
+Example:
+
+```erb
+<div class=user-notif">
+...
+<div class="mark-as-read" data-url="<%= read_user_notif_path(id: @notif.id) %>">X</div>
+<div>
+```
+
+The default behavior remove the unread class on the element itself but you can override it or add your own behavior.
 
 ### Mailer
 
- # TODO
+Every notification send a mail by default.
+You can override this in your generated model: `app/models/notifs/your_notif.rb`
+
+The mailer views are located at `app/views/notifs/mailer/your_notif.[html,text].erb`
+
+You can customize the mailer by providing options in your generated initializer (install step):
+
+```ruby
+UserNotif.setup do |config|
+  config.app_name = 'My App'
+  config.mailer_sender = 'no-reply@myapp.com'
+  config.mailer_bcc = 'admin@myapp.com'
+  config.mailer_cc = 'admin@myapp.com'
+  config.mailer_reply_to = 'admin@myapp.com'
+  config.mailer_date = Date.current
+  config.return_path = 'contact@myapp.com'
+end
+```
+
+By modifying the initializer, all your notification mailers will default to this.
+You can still provide custom values per notification by overriding the method `email_options` in your generated model.
+
+This method should look like this:
+
+```ruby
+def email_options
+  super({
+      subject: I18n.t('awesome.18n.key'),
+      cc: @coworker.email,
+      bcc: @president.email
+    })
+end
+```
+
+The `super` ensures default values are loaded.
 
 ## Development
 
