@@ -1,14 +1,12 @@
 class FooNotif < UserNotif::Notif
-  def email?
-    # Override or delete (default: true)
-  end
-
   def template_name
     'foo_notif'
   end
 
-  def subject_email
-    I18n.t('notif.foo.subject')
+  def email_options
+    super({
+              subject: I18n.t('notif.foo.subject')
+          })
   end
 
   def target_class
