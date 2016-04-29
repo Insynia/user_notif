@@ -17,7 +17,7 @@ module UserNotif
     end
 
     def add_user_notif_routes
-      route "put '/notifications/:id', to: 'user_notif/notifications#read'"
+      route "put '/user_notif', to: 'user_notif/notifications#create', as: :read_user_notif"
     end
   end
 end
