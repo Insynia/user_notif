@@ -25,9 +25,9 @@ And then execute:
 
 After you install UserNotif and add it to your Gemfile, you need to run the generator:
 
-`rails generate user_notif:install User`
+`rails generate user_notif:install`
 
-The parameter `User` is the model name of my users (easy, no?).
+The UserNotifs belong to a user. To ensure it works, make sure you have a `User` model
 
 
 ---
