@@ -1,3 +1,4 @@
-notif:
-  generic:
-    subject: 'Nouvelle notification de %{app_name} !'
+fr:
+  notif:
+    generic:
+      subject: 'Nouvelle notification de %{app_name} !'
