@@ -111,7 +111,7 @@ The default behavior remove the unread class on the element itself but you can o
 
 ### Mailer
 
-Every notification send a mail by default.
+Every notification sends a mail by default.
 You can override this in your generated model: `app/models/notifs/your_notif.rb`
 
 The mailer views are located at `app/views/notifs/mailer/your_notif.[html,text].erb`
@@ -150,6 +150,20 @@ end
 ```
 
 The `super` ensures default values are loaded.
+
+If you want to customize the mailer behaviour, you can re-open the class at `app/mailers/user_notif/notif_mailer.rb`. For example, If you want to use another mail generator (such as Roadie) alongs with i18n and the Rails URL helpers or even add a layout to your emails, it would give something like this :
+
+```ruby
+# app/mailers/user_notif/notif_mailer.rb
+
+class UserNotif::NotifMailer
+  include Roadie::Rails::Automatic
+  include DefaultUrlOptions
+  include Rails.application.routes.url_helpers
+
+  layout 'mailer'
+end
+```
 
 ## Development
 
