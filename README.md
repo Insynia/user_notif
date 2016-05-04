@@ -119,6 +119,8 @@ The mailer views are located at `app/views/notifs/mailer/your_notif.[html,text].
 You can customize the mailer by providing options in your generated initializer (install step):
 
 ```ruby
+# config/initializers/user_notif.rb
+
 UserNotif.setup do |config|
   config.app_name = 'My App'
   config.mailer_sender = 'no-reply@myapp.com'
@@ -136,6 +138,8 @@ You can still provide custom values per notification by overriding the method `e
 This method should look like this:
 
 ```ruby
+# app/models/notifs/your_notif.rb
+...
 def email_options
   super({
       subject: I18n.t('awesome.18n.key'),
@@ -160,8 +164,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/terry9
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/terry90/user_notif/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
