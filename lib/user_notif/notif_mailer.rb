@@ -17,6 +17,7 @@ module UserNotif
     private
 
     def send_email(opts)
+      attachments = opts.delete(:attachments)
       mail(opts)
     end
   end
