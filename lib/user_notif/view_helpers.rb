@@ -17,6 +17,11 @@ module UserNotif
       render("notifs/#{small ? 'small' : 'full'}/#{notif.template_name}")
     end
 
+    def notif_badge(notifs = nil)
+      nb = notifs.count
+      nb == 0 ? '' : "<span class=\"notif-badge\">#{nb}</span>".html_safe
+    end
+
     private
 
     def wrap(elem)
