@@ -14,6 +14,7 @@ module UserNotif
 
     def user_notif(notif, small = true)
       @notif = notif
+      @target = notif.target
       render("notifs/#{small ? 'small' : 'full'}/#{notif.template_name}")
     end
 
