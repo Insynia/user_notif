@@ -1,54 +1,55 @@
 .user-notif-wrapper {
-    .small-user-notif {
-        cursor: pointer;
-        padding: 10px;
-        color: #333333;
-        border-bottom: 1px solid lightgrey;
+  .small-user-notif, .user-notif {
+    padding: 10px;
+    color: #333333;
 
-        &:last-child {
-            border-bottom: none
-        }
-
-        &:hover {
-            background-color: lightgrey;
-        }
-
-        &:before {
-            display: inline-block;
-            vertical-align: middle;
-            height: 10px;
-            width: 10px;
-            border-radius: 50%;
-            background-color: grey;
-            content: ''
-        }
-
-        &.unread {
-            &:before {
-                background-color: #33ce74;
-            }
-        }
-
-        .notif-body {
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 10px;
-        }
+    .notif-body {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px;
     }
+
+    .notif-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+
+      &:before {
+        cursor: pointer;
+        margin-left: -15px;
+        margin-right: 5px;
+        display: inline-block;
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background-color: grey;
+        content: ''
+      }
+    }
+
+    .notif-content {
+      font-weight: normal;
+    }
+
+    &.unread {
+      .notif-title {
+        &:before { background-color: #33ce74 }
+      }
+    }
+  }
 }
 
 .notif-badge {
-    display: inline-block;
-    min-width: 10px;
-    padding: 3px 7px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    line-height: 1;
-    vertical-align: middle;
-    white-space: nowrap;
-    text-align: center;
-    border-radius: 10px;
-    background-color: #e74c3c;
-    z-index: 10;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #e74c3c;
+  z-index: 10;
 }
