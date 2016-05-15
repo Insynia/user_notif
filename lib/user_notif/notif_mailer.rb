@@ -17,7 +17,7 @@ module UserNotif
     private
 
     def send_email(opts)
-      attachments = opts.delete(:attachments)
+      opts.delete(:attachments).each { |k| attachments[k[0]] = k[1] }
       mail(opts)
     end
   end
