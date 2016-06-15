@@ -74,6 +74,17 @@ It creates a NewFollowerNotif
 
 Now you can add the logic to create notifications when a user is followed by another one (the target).
 
+Example:
+
+`NewProjectNotif.create(target: self, user: self.user)`
+
+To create sticky notifs (notification staying on top of the list), you can add `sticky: true` when you create it. Like this:
+
+`NewProjectNotif.create(target: self, user: self.user, sticky: true)`
+
+Then, you can display it in your view like this: `<%= list_user_notifs(UserNotif::Notif.all.order(sticky: :desc, unread: desc, id: :desc)) %>`
+This line of code will display notifications by sticky first, then unread, then by id.
+
 ### Views
 
 To display your notifications, you can use some helpers:
