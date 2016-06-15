@@ -1,3 +1,3 @@
 module UserNotif
-  VERSION = '0.1.13.1'
+  VERSION = '0.1.13.2'
 end
