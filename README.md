@@ -51,6 +51,8 @@ In your `app/assets/javascripts/application.js`
 //
 ```
 
+Do not forget to restart your server to load the new assets.
+
 ## Usage
 
 Now you can create your first notification !
@@ -99,6 +101,12 @@ To display your notifications, you can use some helpers:
 ```
 
 The `small` parameter will take care of rendering the partial located in `app/views/notifs/[small,full]`
+
+You can also use the `notif_badge` helper to display a badge with the number of unread notifications.
+
+```erb
+<%= notif_badge(UserNotif.unread) %>
+```
 
 
 #### Cutomizing your views
