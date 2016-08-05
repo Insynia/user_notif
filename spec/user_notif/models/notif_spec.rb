@@ -47,13 +47,17 @@ describe UserNotif::Notif do
     let(:notif) { UserNotif::Notif.new(user: user) }
 
     before do
-      allow(notif).to receive(:email?) { true }
       allow(notif).to receive(:target_class) { NilClass }
     end
 
     context 'when email? returns true' do
+      before do
+        allow(notif).to receive(:email?) { true }
+      end
+
       it 'sends an email' do
-        expect { notif.save }.to change { ActionMailer::Base.deliveries.count }.by 1
+        expect(UserNotif::NotifMailer).to receive(:notif_email).and_call_original
+        notif.save
       end
     end
 
@@ -63,7 +67,8 @@ describe UserNotif::Notif do
       end
 
       it 'does not send an email' do
-        expect { notif.save }.to change { ActionMailer::Base.deliveries.count }.by 0
+        expect(UserNotif::NotifMailer).not_to receive(:notif_email).with(notif.id)
+        notif.save
       end
     end
   end
