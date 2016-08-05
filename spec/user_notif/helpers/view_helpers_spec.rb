@@ -79,4 +79,18 @@ describe UserNotif::ViewHelpers, type: :helper do
       end
     end
   end
+
+  describe '#notif_badge' do
+    context 'When having 1 notif' do
+      it 'should render a badge' do
+        expect(notif_badge([notif])).to eq "<span class=\"notif-badge\">1</span>"
+      end
+    end
+
+    context 'When having no unread notif' do
+      it 'should not render a badge' do
+        expect(notif_badge([])).to eq ''
+      end
+    end
+  end
 end
