@@ -1,11 +1,15 @@
 # UserNotif
 
 [![Gem Version](https://badge.fury.io/rb/user_notif.svg)](https://badge.fury.io/rb/user_notif)
-[![Build Status](https://travis-ci.org/terry90/user_notif.svg?branch=master)](https://travis-ci.org/terry90/user_notif)
-[![Coverage Status](https://coveralls.io/repos/github/terry90/user_notif/badge.svg?branch=master)](https://coveralls.io/github/terry90/user_notif?branch=master)
-[![Code Climate](https://codeclimate.com/github/terry90/user_notif/badges/gpa.svg)](https://codeclimate.com/github/terry90/user_notif)
-[![Dependency Status](https://gemnasium.com/badges/github.com/terry90/user_notif.svg)](https://gemnasium.com/github.com/terry90/user_notif)
-[![security](https://hakiri.io/github/terry90/user_notif/master.svg)](https://hakiri.io/github/terry90/user_notif/master)
+[![Build Status](https://travis-ci.org/Insynia/user_notif.svg?branch=master)](https://travis-ci.org/Insynia/user_notif)
+[![Coverage Status](https://coveralls.io/repos/github/Insynia/user_notif/badge.svg?branch=master)](https://coveralls.io/github/Insynia/user_notif?branch=master)
+[![Code Climate](https://codeclimate.com/github/Insynia/user_notif/badges/gpa.svg)](https://codeclimate.com/github/Insynia/user_notif)
+[![Dependency Status](https://gemnasium.com/badges/github.com/Insynia/user_notif.svg)](https://gemnasium.com/github.com/Insynia/user_notif)
+[![security](https://hakiri.io/github/Insynia/user_notif/master.svg)](https://hakiri.io/github/Insynia/user_notif/master)
+
+## TODO
+
+Add belongs_to custom model (add this in initializer and load it like this belongs_to UserNotif.model_name... in notif.rb)
 
 ## Installation
 
