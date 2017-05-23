@@ -8,7 +8,7 @@ module UserNotif
     scope :unread, -> { where(unread: true) }
 
     before_save :validate_target_and_user
-    after_create :notify_email
+    after_commit :notify_email, on: :create
 
     def email?
       true
@@ -38,7 +38,7 @@ module UserNotif
 
     def validate_target_and_user
       raise ModelExceptions::BadTypeNotification unless self.target.class == target_class
-      raise ModelExceptions::NotifOwnerNil if self.user == nil
+      raise ModelExceptions::NotifOwnerNil if self.user.nil?
     end
 
     def notify_email
