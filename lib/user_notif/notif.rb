@@ -26,7 +26,7 @@ module UserNotif
         from: UserNotif.mailer_sender,
         reply_to: UserNotif.mailer_reply_to,
         cc: UserNotif.mailer_cc,
-        date: Time.current,
+        date: Time.current
       }.merge(opts)
     end
 
@@ -37,13 +37,13 @@ module UserNotif
     private
 
     def validate_target_and_user
-      raise ModelExceptions::BadTypeNotification unless self.target.class == target_class
-      raise ModelExceptions::NotifOwnerNil if self.user == nil
+      raise ModelExceptions::BadTypeNotification unless target.class == target_class
+      raise ModelExceptions::NotifOwnerNil if user.nil?
     end
 
     def notify_email
       return unless email?
-      NotifMailer.notif_email(self.id).deliver_later
+      NotifMailer.notif_email(id).deliver_later
     end
   end
 end

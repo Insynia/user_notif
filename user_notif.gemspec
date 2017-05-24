@@ -1,4 +1,5 @@
 # coding: utf-8
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'user_notif/version'
@@ -9,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Terry Raimondo']
   spec.email         = ['terry.raimondo@gmail.com']
 
-  spec.summary       = %q{Notification system for your users.}
-  spec.description   = %q{This gem adds notifications to your app, you can display the notifications where you want, add a dropdown on your header for example. Add views, mailer views and go !}
+  spec.summary       = 'Notification system for your users.'
+  spec.description   = 'This gem adds notifications to your app, you can display the notifications where you want, add a dropdown on your header for example. Add views, mailer views and go !'
   spec.homepage      = 'https://github.com/terry90/user_notif'
   spec.license       = 'MIT'
 
