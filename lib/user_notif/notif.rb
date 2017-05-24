@@ -8,7 +8,7 @@ module UserNotif
     scope :unread, -> { where(unread: true) }
 
     before_save :validate_target_and_user
-    after_create :notify_email
+    after_commit :notify_email, on: :create
 
     def email?
       true
