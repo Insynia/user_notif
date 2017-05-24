@@ -5,8 +5,8 @@ class FooNotif < UserNotif::Notif
 
   def email_options
     super({
-              subject: I18n.t('notif.foo.subject')
-          })
+      subject: I18n.t('notif.foo.subject')
+    })
   end
 
   def target_class

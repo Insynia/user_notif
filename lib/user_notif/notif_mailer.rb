@@ -7,11 +7,10 @@ module UserNotif
       @target = notif.target
       @user = notif.user
       send_email({
-                   to: @user.email,
-                   template_path: 'notifs/mailer',
-                   template_name: notif.template_name
-                 }.merge(notif.email_options)
-      )
+        to: @user.email,
+        template_path: 'notifs/mailer',
+        template_name: notif.template_name
+      }.merge(notif.email_options))
     end
 
     private
