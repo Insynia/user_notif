@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '>= 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rspec-rails', '~> 3.0'
-  spec.add_development_dependency 'combustion', '~> 0.5.4'
+  spec.add_development_dependency 'combustion', '~> 0.9.1'
   spec.add_development_dependency 'sprockets-rails', ['>= 3.0']
 
   spec.add_runtime_dependency 'activerecord', '>= 4.0'
